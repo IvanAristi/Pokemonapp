@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5455/pokemon-data-base
+    username: pokemon
+    password: 123456
+  jpa:
+   hibernate:
+    ddl-auto: create # validate
+   show-sql: true

@@ -30,16 +30,16 @@ public class PokemonAppApplication {
 	}
 
 
-	
+	//en el jeison de habilty en la url mostrar solo el numero que llegue.
+	//packate module.searc
 	@GetMapping("/pokemon/{nombrePokemon}")
 	public PokemonDto  obtenerPokemon (@PathVariable ("nombrePokemon") String nombre ) {
 		
-		
-		
-		return pokemonservice.getPokemon("pikachu");
+		return pokemonservice.getPokemon(nombre);
 		
 		
 	}
+	//otro package y crear una clase y pasar los metodos.
 	
 	@GetMapping("/pokemon")
 	public String filtrarPokemon (@RequestParam ( value="habilidad",required = false ) String habilidad ,
