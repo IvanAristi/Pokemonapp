@@ -18,9 +18,6 @@ public class PokemonAppApplication {
 
 	
 	
-	@Autowired
-	PokemonService pokemonservice;
-	
 	public static void main(String[] args) {
 		SpringApplication.run(PokemonAppApplication.class, args);
 		
@@ -30,38 +27,8 @@ public class PokemonAppApplication {
 	}
 
 
-	//en el jeison de habilty en la url mostrar solo el numero que llegue.
-	//packate module.searc
-	@GetMapping("/pokemon/{nombrePokemon}")
-	public PokemonDto  obtenerPokemon (@PathVariable ("nombrePokemon") String nombre ) {
-		
-		return pokemonservice.getPokemon(nombre);
-		
-		
-	}
-	//otro package y crear una clase y pasar los metodos.
-	
-	@GetMapping("/pokemon")
-	public String filtrarPokemon (@RequestParam ( value="habilidad",required = false ) String habilidad ,
-			@RequestParam (value="ubicacion",required = false) String ubicacion) {
-		return "Hola soy el pokemon filtrado " + habilidad + " ubicacion = " + ubicacion;
-	}
-	
-	
-	//filtros retornar el nombre y edad ubicacion
-	///pokemon/{nombrePokem}?edad=5//
-	
-	
-	@GetMapping("/filtrar")
-	public String filtrarNombrePokemon (@RequestParam ( value = "nombre", required = false) String nombre,
-			  @RequestParam(value = "ubicacion", required = false) String ubicacion,
-			  @RequestParam(value = "edad", required = false) Integer edad) {
-		return "Nombre del pokemon: " + (nombre != null ? nombre : "no especificado") +
-				", Ubicación: " + (ubicacion != null ? ubicacion : "no especificada") +
-				", Edad: " + (edad != null ? edad : "no especificada");
-				}
-					
-				}
+}
+
 
 			
 	
