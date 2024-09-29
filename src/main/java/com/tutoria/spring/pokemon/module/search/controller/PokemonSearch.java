@@ -7,34 +7,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tutoria.spring.pokemon.crosscutting.dto.PokemonDto;
 import com.tutoria.spring.pokemon.module.search.service.PokemonService;
+import org.springframework.web.bind.annotation.RestController;
 
 
-
+@RestController
 public class PokemonSearch {
 
 	@Autowired
-	PokemonService pokemonservice;
+	private PokemonService pokemonservice;
 	
-	
-	
+
 	@GetMapping("/pokemon/{nombrePokemon}")
 	public PokemonDto  obtenerPokemon (@PathVariable ("nombrePokemon") String nombre ) {
-		
 		return pokemonservice.getPokemon(nombre);
-		
-		
 	}
-	//otro package y crear una clase y pasar los metodos.
-	
+
 	@GetMapping("/pokemon")
 	public String filtrarPokemon (@RequestParam ( value="habilidad",required = false ) String habilidad ,
 			@RequestParam (value="ubicacion",required = false) String ubicacion) {
 		return "Hola soy el pokemon filtrado " + habilidad + " ubicacion = " + ubicacion;
 	}
-	
-	
-	//filtros retornar el nombre y edad ubicacion
-	///pokemon/{nombrePokem}?edad=5//
 	
 	
 	@GetMapping("/filtrar")
