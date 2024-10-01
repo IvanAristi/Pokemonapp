@@ -1,65 +1,80 @@
 package com.tutoria.spring.pokemon.crosscutting.dto;
 
+
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+public class PokemonDto {
+    private Long height;
+    private String name;
+    private Long id;
+    private Long order;
+    private Long weight;
+    private List<AbilityGeneral> abilities;
+    private PokemonSprites sprites;
 
-public record PokemonDto(
-    Long height,
-    String name,
-    Long id,
-    Long order,
-    Long weight,
-    List<AbilityGeneral> abilities,
-    PokemonSprites sprites
-) {
+    public PokemonDto(Long height, String name, Long id, Long order, Long weight, List<AbilityGeneral> abilities, PokemonSprites sprites) {
+        this.height = height;
+        this.name = name;
+        this.id = id;
+        this.order = order;
+        this.weight = weight;
+        this.abilities = abilities;
+        this.sprites = sprites;
+    }
 
-    public record AbilityGeneral(
-        Ability ability,
-        @JsonProperty("is_hidden") boolean isHidden,
-        @JsonProperty("slot") Long slot
-    ) {}
+    public Long getHeight() {
+        return height;
+    }
 
-    public record Ability(
-        @JsonProperty("name") String name,
-        @JsonProperty("url") String url
-    ) {}
+    public void setHeight(Long height) {
+        this.height = height;
+    }
 
-    public record PokemonSprites(
-        @JsonProperty("other") Other other,
-        @JsonProperty("types") Type[] types
-    ) {}
+    public String getName() {
+        return name;
+    }
 
-    public record Other(
-        @JsonProperty("dream_world") DreamWorld dreamWorld,
-        @JsonProperty("home") Home home,
-        @JsonProperty("official-artwork") OfficialArtwork officialArtwork
-    ) {}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public record DreamWorld(
-        @JsonProperty("front_default") String frontDefault,
-        @JsonProperty("front_female") String frontFemale
-    ) {}
+    public Long getId() {
+        return id;
+    }
 
-    public record Home(
-        @JsonProperty("front_default") String frontDefault,
-        @JsonProperty("front_female") String frontFemale,
-        @JsonProperty("front_shiny") String frontShiny,
-        @JsonProperty("front_shiny_female") String frontShinyFemale
-    ) {}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public record OfficialArtwork(
-        @JsonProperty("front_default") String frontDefault,
-        @JsonProperty("front_shiny") String frontShiny
-    ) {}
+    public Long getOrder() {
+        return order;
+    }
 
-    public record Type(
-        @JsonProperty("slot") int slot,
-        @JsonProperty("type") TypeDetail type
-    ) {}
+    public void setOrder(Long order) {
+        this.order = order;
+    }
 
-    public record TypeDetail(
-        @JsonProperty("name") String name,
-        @JsonProperty("url") String url
-    ) {}
+    public Long getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Long weight) {
+        this.weight = weight;
+    }
+
+    public List<AbilityGeneral> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<AbilityGeneral> abilities) {
+        this.abilities = abilities;
+    }
+
+    public PokemonSprites getSprites() {
+        return sprites;
+    }
+
+    public void setSprites(PokemonSprites sprites) {
+        this.sprites = sprites;
+    }
 }

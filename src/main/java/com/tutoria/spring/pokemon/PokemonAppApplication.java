@@ -16,14 +16,8 @@ import com.tutoria.spring.pokemon.module.search.service.PokemonService;
 @SpringBootApplication
 public class PokemonAppApplication {
 
-	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(PokemonAppApplication.class, args);
-		
-		
-		
-		
 	}
 
 
